@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: cucumberOptions.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 115.5 s <<< FAILURE! -- in cucumberOptions.TestRunner
+cucumberOptions.TestRunner.runScenario["Login with wrong credentials", "Login Page"](3) -- Time elapsed: 28.91 s <<< FAILURE!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for element to no longer be visible: By.id: login (tried for 10 second(s) with 10 milliseconds interval)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'bhupeshs-MacBook-Pro.local', ip: '2401:4900:8855:7cdc:9853:4dd4:3f27:a048%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.0.1', java.version: '24.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.60, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: /var/folders/g_/w61sp5k50x5...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60129}, goog:processID: 8359, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:60129/devtoo..., se:cdpVersion: 142.0.7444.60, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ac5e43f48e40380b8cf8dae58879a12f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at pom.PageBase.waitForElement(PageBase.java:54)
+	at pom.LoginPage.clickLoginButton(LoginPage.java:71)
+	at stepdefinitions.Login.clickLoginButton(Login.java:83)
+	at stepdefinitions.Login.user_enter_username_pnd_password(Login.java:35)
+	at ✽.User Enter Username = "testuser" And Password = "Password"(file:///Users/bhupeshjoshi/EclipseSelenium/allure/src/test/java/features/Login.feature:18)
+

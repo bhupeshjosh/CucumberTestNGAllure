@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bhupesh</groupId>
+  <artifactId>allure</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>allure</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <!-- <maven.compiler.release>17</maven.compiler.release>--> 
+    <allure.version>2.24.0</allure.version>
+    <aspectj.version>1.9.20.1</aspectj.version>
+ 	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>   
+  </properties>
+
+<!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-bom</artifactId>
+            <version>${allure.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>4.4.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>7.15.0</version>
+	</dependency> 
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-testng</artifactId>
+	    <version>7.15.0</version>
+	</dependency>	
+		<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>7.11.0</version>
+	    <scope>test</scope>
+	</dependency>
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <scope>test</scope>
+    </dependency>
+ <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-cucumber7-jvm</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+		    <groupId>io.github.bonigarcia</groupId>
+		    <artifactId>webdrivermanager</artifactId>
+		    <version>5.8.0</version>
+		</dependency>	
+	 	<dependency>
+		    <groupId>io.cucumber</groupId>
+		    <artifactId>cucumber-picocontainer</artifactId>
+		    <version>7.11.1</version>
+		</dependency>  			                	
+  </dependencies>
+ 
+  <build>
+    <plugins>
+        <plugin>
+ <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->       
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.1.2</version>
+			<configuration>
+			    <argLine>
+            		-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+        		</argLine>
+			    <properties>			    	
+			        <property>
+			            <name>dataproviderthreadcount</name>
+			            <value>1</value>
+			        </property>
+			    </properties>
+			</configuration>
+			<dependencies>
+			    <dependency>
+            		<groupId>org.aspectj</groupId>
+            		<artifactId>aspectjweaver</artifactId>
+            		<version>${aspectj.version}</version>
+        		</dependency>
+			</dependencies>
+        </plugin>    
+      </plugins>
+  </build>
+</project>

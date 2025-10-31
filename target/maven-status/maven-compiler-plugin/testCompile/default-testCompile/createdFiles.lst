@@ -1,0 +1,8 @@
+stepdefinitions/Login.class
+stepdefinitions/Hooks.class
+pom/LoginPage.class
+pom/PomManager.class
+cucumberOptions/TestRunner.class
+stepdefinitions/Table.class
+pom/PageBase.class
+pom/TablePage.class
