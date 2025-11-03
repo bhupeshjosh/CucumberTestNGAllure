@@ -3,3 +3,5 @@ test-output/
 allure-results/
 target/
 **.class
+*.DS_Store
+**.DS_Store
