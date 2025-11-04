@@ -4,10 +4,12 @@ import java.time.Duration;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -39,12 +41,13 @@ public class PageBase {
 			WebElement ele1 = d1.findElement(by);
 			if(ele1 == null) {
 				System.out.println("Element not found");
-			}else {
+			}else if(ele1.isDisplayed()){
 				System.out.println("Element found");
 			}
-			return ele1;
+			return ele1;		
+			
 		});
-		
+		new Actions(driver).moveToElement(ele,0,200);
 		return ele;
 	}
 	
@@ -62,5 +65,10 @@ public class PageBase {
 		catch(NoAlertPresentException | TimeoutException ex) {
 			System.out.println("Alert Not Present");
 		}
+	}
+	
+	void scrollElement(By by) {
+		WebElement ele = waitForElement(by);
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",ele);
 	}
 }

@@ -33,13 +33,15 @@ public class Login{
 		loginWithCredentials(arg1,arg2);
 		System.out.println("Username password entered");		
 		clickLoginButton();
+		c.getScreenshot();
 	}
 
 	@When("^User Enter Username = ([^\"]*) And Password = ([^\"]*)")
 	public void user_enters_username_pnd_password(String arg1, String arg2) {
 		loginWithCredentials(arg1,arg2);
 		System.out.println("Username password entered");		
-		clickLoginButton();		
+		clickLoginButton();	
+		c.getScreenshot();
 	}
 
 	@When("^User Enter Wrong Username And Password$")
@@ -54,6 +56,12 @@ public class Login{
 		c.getScreenshot();
 	}
 
+	@When("^Navigate HomePage to SliderPage$")
+	public void navigate_home_page_to_slider_page() {
+		p.getLoginPage().navigateToSlider();
+		c.getScreenshot();
+	}
+	
 	@Then("^Homepage Is Displayed$")
 	public void homepage_is_displayed() {
 

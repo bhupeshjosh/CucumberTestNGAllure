@@ -1,4 +1,3 @@
-
 Feature: Table Page test
 
   @tag1
@@ -7,3 +6,4 @@ Feature: Table Page test
     When User Enter Username = "testuser" And Password = "Password@123"
     And Navigate HomePage to WebtablePage
     And User Deletes a Row
+    

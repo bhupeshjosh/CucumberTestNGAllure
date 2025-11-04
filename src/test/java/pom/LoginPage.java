@@ -25,6 +25,9 @@ public class LoginPage extends PageBase{
 	private By webTable = By.xpath("//span[text()='Web Tables']");
 	private By logout = By.xpath("//button[@id='submit']");
 	private By userlabel = By.xpath("//label[contains(text(),'User Name : ')]/following-sibling::label");
+	private By widgets = By.xpath("//div[text()='Widgets']");
+	private By sliderElement = By.xpath("//span[text()='Slider']");
+	private By slider = By.xpath("//div[@id='sliderContainer']//input[@type='range']");
 
 	LoginPage(WebDriver d) {
 		// TODO Auto-generated constructor stub
@@ -92,4 +95,10 @@ public class LoginPage extends PageBase{
 		return userNameElement;
 	}
 
+	public void navigateToSlider() {
+		waitForElement(widgets).click();
+		scrollElement(sliderElement);
+		waitForElement(sliderElement).click();
+		waitForElement(slider);
+	}
 }
