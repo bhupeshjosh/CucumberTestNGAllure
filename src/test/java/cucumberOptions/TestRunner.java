@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
 		,monochrome = true
 		//,publish = true
 		//,dryRun = true
-		,tags= "@slidertest"
+		//,tags= "@slidertest"
 		,plugin =  {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"})
 
 public class TestRunner extends AbstractTestNGCucumberTests{
